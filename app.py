@@ -1,11 +1,14 @@
+# My amazing flak app
 from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
-#this is my homepage
-    return "En esta noche la vida es completa"
+# This is my homepage
+    return "Sat Sri Akhal"
+
 
 if  __name__ == "__main__":
     app.run(debug=True)
