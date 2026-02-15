@@ -3,7 +3,10 @@
 -- Use the ▷ button in the top right corner to run the entire file.
 
 -- Selcects the car id and car name from cars
-SELECT CarID,CarName FROM Cars;
+SELECT CarID, CarName FROM Cars;
 
 SELECT * FROM Cars
+JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID; 
+
+SELECT Cars.CarID, Manufacturer.Name, Cars.CarName, Cars.ImgURL FROM Cars
 JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID; 
