@@ -1,5 +1,5 @@
 # My amazing flak app
-from flask import Flask, g
+from flask import Flask, g, render_template
 import sqlite3
 
 DATABASE = "appdatabase.db"
@@ -32,22 +32,22 @@ def query_db(query, args=(), one=False):
 @app.route('/')
 def home():
 # This is my homepage and it will include the id, name, maker and img
-    #Ask em queries mate
+    # Ask em queries mate
     sql = """SELECT Cars.CarID, Manufacturer.Name, Cars.CarName, Cars.ImgURL 
         FROM Cars
         JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID;"""
     results = query_db(sql)
-    return str(results)
+    return render_template("homepage.html")
 
 @app.route('/cars/<int:id>')
 def cars(id):
-    # A single bke based on the int id
+    # A single car based on the int id
     sql = """SELECT * FROM Cars JOIN Manufacturer 
             ON Manufacturer.ManufacturerID = Cars.ManufacturerID
             WHERE Cars.CarID = ?; """
     result = query_db(sql,(id,),True)
-    return str(result)
+    return render_template("car.html", car=result)
 
 
-if  __name__ == "__main__":
+if __name__ == "__main__":
     app.run(debug=True)

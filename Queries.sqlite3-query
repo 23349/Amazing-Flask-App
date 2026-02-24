@@ -10,3 +10,7 @@ JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID;
 
 SELECT Cars.CarID, Manufacturer.Name, Cars.CarName, Cars.ImgURL FROM Cars
 JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID; 
+
+SELECT * FROM Cars JOIN Manufacturer 
+ON Manufacturer.ManufacturerID = Cars.ManufacturerID
+WHERE Cars.CarID = 1; 
