@@ -1,3 +1,25 @@
 *{
   font-family: "Oswald", sans-serif;
 }
+
+.title{
+  font-size: 50px;
+}
+
+.triple-coloumn{
+  font-weight: bolder;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3em;
+  width: 100%;
+}
+
+.two-coloumn{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5em;
+}
+
+img{
+  width: 100%;
+}

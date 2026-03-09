@@ -1,0 +1,13 @@
+<!-- page for each individual bikes info--> 
+{% extends "home.html" %}
+{% block body %}
+<!-- dual coloumn for info :)-->
+ <div class="two-coloumn">
+    <!--img (left side)-->
+    <img class="car-img" src = "{{car[7]}}" alt = "{{car[2]}}">
+    <!--info (right side)-->
+    <div class="info">
+        <h1>"{{car[0]}}"</h1>
+    </div>
+ </div>
+{% endblock %}

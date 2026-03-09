@@ -26,18 +26,20 @@ def query_db(query, args=(), one=False):
     cur = get_db().execute(query, args)
     rv = cur.fetchall()
     cur.close()
-    return (rv[0] if rv else None) if one else rv        
+    return (rv[0] if rv else None) if one else rv       
 
 
 @app.route('/')
 def home():
-# This is my homepage and it will include the id, name, maker and img
+    # This is my homepage and it will include the id, name, maker and img
     # Ask em queries mate
     sql = """SELECT Cars.CarID, Manufacturer.Name, Cars.CarName, Cars.ImgURL 
         FROM Cars
-        JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID;"""
+        JOIN Manufacturer 
+        ON Manufacturer.ManufacturerID = Cars.ManufacturerID;"""
     results = query_db(sql)
-    return render_template("homepage.html")
+    return render_template("home.html", results=results)
+
 
 @app.route('/cars/<int:id>')
 def cars(id):
@@ -45,7 +47,7 @@ def cars(id):
     sql = """SELECT * FROM Cars JOIN Manufacturer 
             ON Manufacturer.ManufacturerID = Cars.ManufacturerID
             WHERE Cars.CarID = ?; """
-    result = query_db(sql,(id,),True)
+    result = query_db(sql, (id,), True)
     return render_template("car.html", car=result)
 
 

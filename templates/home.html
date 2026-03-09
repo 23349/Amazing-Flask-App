@@ -1,0 +1,17 @@
+{% extends "homepage.html" %}
+{% block body %}
+
+<!-- TRIPLE COLOUMN-->
+    <div class="triple-coloumn">
+        {% for car in results %}
+        <!--anchor-->
+        <a href="{{url_for('cars',id=car[0])}}">
+            <div class="w3-card-4">
+            <!--Name-->
+                <h1>{{car[1]}} {{car[2]}}</h1>
+                <img src="{{car[3]}}" alt ="{{car [2]}}">
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock %}

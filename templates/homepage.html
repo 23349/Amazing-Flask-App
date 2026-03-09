@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "{{url_for('static', filename='style.css')}}">
     <link rel = "stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href = "{{url_for('static', filename='style.css')}}">
     <title>Crazy Cars</title>
 </head>
 <body>
     <!--shared head bar-->
+    <header class="w3-container w3-padding-32">
+        <div class="title">
+            <h1>CARS 4 LIFE</h1>
+        </div>
+    </header>
+
     <!--shared nav bar-->
+    <div class="w3-bar w3-black" w3>
+        <a href="/templates/homepage.html" class="w3-bar-item w3-button w3-mobile" style="width:12.5%">Home</a>
+
+        <!--Dropdown-->
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Dropdown</button>
+            <!--Dropdow links-->
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                <a href="#" class="w3-bar-item w3-button">Link 3</a>.
+            </div>
+        </div>
+
+        <a href="#" class="w3-bar-item w3-button w3-mobile" style="width:12.5%" >Cars</a>
+
+        <!--Search bar-->
+        <input type="text" class="w3-bar-item w3-input" placeholder="Search..">
+        <a href="#" class="w3-bar-item w3-button w3-green">Go</a>
+    </div>
     {% block body %}
-    {% end block %}
+    {% endblock %}
     
 </body>
 </html>
