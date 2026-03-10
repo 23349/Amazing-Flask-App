@@ -14,31 +14,40 @@
     <!--shared head bar-->
     <header class="w3-container w3-padding-32">
         <div class="title">
-            <h1>CARS 4 LIFE</h1>
+            <h1>Cars The Website</h1>
         </div>
     </header>
 
     <!--shared nav bar-->
     <div class="w3-bar w3-black" w3>
-        <a href="/templates/homepage.html" class="w3-bar-item w3-button w3-mobile" style="width:12.5%">Home</a>
+        <a href="{{url_for('home')}}" class="w3-bar-item w3-button w3-mobile" style="width:12.5%">Home</a>
 
         <!--Dropdown-->
         <div class="w3-dropdown-hover">
-            <button class="w3-button">Dropdown</button>
+            <button class="w3-button">Manufacturers</button>
             <!--Dropdow links-->
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="#" class="w3-bar-item w3-button">Link 1</a>
-                <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                <a href="#" class="w3-bar-item w3-button">Link 3</a>.
+                <a href="{{url_for('manufacturer',id=0)}}" class="w3-bar-item w3-button">Toyota</a>
+                <a href="{{url_for('manufacturer',id=1)}}" class="w3-bar-item w3-button">Honda</a>
+                <a href="{{url_for('manufacturer',id=2)}}" class="w3-bar-item w3-button">Ford</a>
+                <a href="{{url_for('manufacturer',id=3)}}" class="w3-bar-item w3-button">BMW</a>
+                <a href="{{url_for('manufacturer',id=4)}}" class="w3-bar-item w3-button">Mercedes-Benz</a>
             </div>
         </div>
 
-        <a href="#" class="w3-bar-item w3-button w3-mobile" style="width:12.5%" >Cars</a>
-
         <!--Search bar-->
-        <input type="text" class="w3-bar-item w3-input" placeholder="Search..">
-        <a href="#" class="w3-bar-item w3-button w3-green">Go</a>
-    </div>
+        <div>
+            <form action="{{url_for('cars_search')}}" >
+                <input type="text" list="car_list" id="car" class="w3-bar-item w3-input" placeholder="Search..">
+
+                <datalist id="car_list">
+                    {% for car in all_cars %}
+                    <option value='{{car[2]}}'>
+                    {% endfor %}
+                </datalist>
+                <button type="submit" class="w3-bar-item w3-button w3-green">Go</button>
+            </form>
+        </div>
     {% block body %}
     {% endblock %}
     

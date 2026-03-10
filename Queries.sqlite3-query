@@ -14,3 +14,8 @@ JOIN Manufacturer ON Manufacturer.ManufacturerID = Cars.ManufacturerID;
 SELECT * FROM Cars JOIN Manufacturer 
 ON Manufacturer.ManufacturerID = Cars.ManufacturerID
 WHERE Cars.CarID = 1; 
+
+SELECT * FROM Cars
+            JOIN Manufacturer
+            ON Manufacturer.ManufacturerID = Cars.ManufacturerID
+            WHERE Manufacturer.ManufacturerID = 1;
