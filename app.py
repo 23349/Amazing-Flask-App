@@ -52,7 +52,7 @@ def cars(id):
     result = query_db(sql, (id,), True)
     return render_template("car.html", car=result)
 
-@app.route('/cars_search', methods=["GET","POST"])
+@app.route('/cars_search', methods=["GET", "POST"])
 def cars_search():
     print(request.form.get("car"))
     sql = """SELECT * FROM Cars

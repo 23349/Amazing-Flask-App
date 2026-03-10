@@ -14,7 +14,7 @@
     <!--shared head bar-->
     <header class="w3-container w3-padding-32">
         <div class="title">
-            <h1>Cars The Website</h1>
+            <h1>CARS 4 LIFE</h1>
         </div>
     </header>
 
@@ -36,18 +36,17 @@
         </div>
 
         <!--Search bar-->
-        <div>
-            <form action="{{url_for('cars_search')}}" >
-                <input type="text" list="car_list" id="car" class="w3-bar-item w3-input" placeholder="Search..">
+        <form action="{{url_for('cars_search')}}" >
+            <input type="text" name="car" list="car_list" id="car" class="w3-bar-item w3-input" placeholder="Search..">
 
-                <datalist id="car_list">
-                    {% for car in all_cars %}
-                    <option value='{{car[2]}}'>
-                    {% endfor %}
-                </datalist>
-                <button type="submit" class="w3-bar-item w3-button w3-green">Go</button>
-            </form>
-        </div>
+            <datalist id="car_list">
+                {% for car in all_cars %}
+                <option value='{{car[2]}}'>
+                {% endfor %}
+            </datalist>
+            <button type="submit" class="w3-bar-item w3-button w3-green">Go</button>
+        </form>
+    </div>
     {% block body %}
     {% endblock %}
     
